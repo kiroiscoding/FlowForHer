@@ -32,9 +32,14 @@ jobs:
 
       - name: Build (static export)
         run: |
-          # If you're using a custom domain, GitHub Pages serves from the domain root (no /<repo> basePath).
-          # We'll detect that via public/CNAME. If it exists -> basePath="", else basePath="/<repo>".
-          if [ -f public/CNAME ]; then
+          # Base path selection:
+          # 1) If repo variable NEXT_PUBLIC_BASE_PATH is set, use it (most predictable; good for switching).
+          # 2) Else if public/CNAME exists -> custom domain build (basePath="").
+          # 3) Else -> project site build at /<repo>.
+          if [ -n "${NEXT_PUBLIC_BASE_PATH_OVERRIDE}" ]; then
+            echo "Using NEXT_PUBLIC_BASE_PATH override from repo variable: ${NEXT_PUBLIC_BASE_PATH_OVERRIDE}"
+            export NEXT_PUBLIC_BASE_PATH="${NEXT_PUBLIC_BASE_PATH_OVERRIDE}"
+          elif [ -f public/CNAME ]; then
             echo "Detected public/CNAME (custom domain). Using empty basePath."
             export NEXT_PUBLIC_BASE_PATH=""
           else
@@ -42,6 +47,8 @@ jobs:
             export NEXT_PUBLIC_BASE_PATH="/${{ github.event.repository.name }}"
           fi
           npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH_OVERRIDE: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
