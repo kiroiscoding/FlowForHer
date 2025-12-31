@@ -49,8 +49,13 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <h3 className="font-display text-xl uppercase mb-1">Follow Us</h3>
-                                    <a href="#" className="text-lg opacity-80 hover:opacity-100 transition-opacity">
-                                        @FlowForHer
+                                    <a
+                                        href="https://www.instagram.com/flow_for_her/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-lg opacity-80 hover:opacity-100 transition-opacity"
+                                    >
+                                        @flow_for_her
                                     </a>
                                 </div>
                             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { clsx } from "clsx";
+import { Instagram, Mail } from "lucide-react";
 
 export const Footer = () => {
     const { language } = useLanguage();
@@ -41,7 +42,7 @@ export const Footer = () => {
         <footer className={clsx("py-20 px-6 md:px-12 transition-colors duration-500", themeClass)}>
             <div className="max-w-7xl mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-2">
                         <Link href="/" className="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-6 block">
@@ -66,6 +67,29 @@ export const Footer = () => {
                                 </li>
                             ))}
                         </ul>
+                    </div>
+
+                    {/* Connect */}
+                    <div>
+                        <h3 className="font-display text-xl uppercase mb-6 opacity-60">Connect</h3>
+                        <div className="space-y-4 font-sans text-lg font-medium">
+                            <a
+                                href="mailto:contact@flowforher.com"
+                                className="inline-flex items-center gap-3 hover:opacity-70 transition-opacity"
+                            >
+                                <Mail className="w-5 h-5" />
+                                <span className="select-text">contact@flowforher.com</span>
+                            </a>
+                            <a
+                                href="https://www.instagram.com/flow_for_her/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-3 hover:opacity-70 transition-opacity"
+                            >
+                                <Instagram className="w-5 h-5" />
+                                <span className="select-text">@flow_for_her</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
