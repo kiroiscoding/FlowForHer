@@ -19,13 +19,16 @@ const navItems = [
 export const Navbar = () => {
     const { language, toggleLanguage, direction } = useLanguage();
     const pathname = usePathname();
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    const normalizedPathname =
+        basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) || "/" : pathname;
     const [scrolled, setScrolled] = useState(false);
     const isKnownRoute =
-        pathname === "/" ||
-        pathname === "/about" ||
-        pathname === "/education" ||
-        pathname === "/resources" ||
-        pathname === "/contact";
+        normalizedPathname === "/" ||
+        normalizedPathname === "/about" ||
+        normalizedPathname === "/education" ||
+        normalizedPathname === "/resources" ||
+        normalizedPathname === "/contact";
     // IMPORTANT: Don't show the intro animation on unknown routes (404),
     // otherwise the 404 page feels like a normal load-in.
     const [isIntro, setIsIntro] = useState(isKnownRoute);
@@ -47,7 +50,7 @@ export const Navbar = () => {
         }
     };
 
-    const themeClass = getThemeColor(pathname);
+    const themeClass = getThemeColor(normalizedPathname);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -159,7 +162,16 @@ export const Navbar = () => {
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
                         {navItems.map((item) => (
-                            <Link key={item.href} href={item.href} className="hover:opacity-75 transition-opacity">
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                aria-current={normalizedPathname === item.href ? "page" : undefined}
+                                className={twMerge(
+                                    "relative hover:opacity-75 transition-opacity",
+                                    normalizedPathname === item.href &&
+                                        "opacity-100 after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-current after:rounded-full"
+                                )}
+                            >
                                 {language === "en" ? item.nameEn : item.nameAr}
                             </Link>
                         ))}
@@ -205,7 +217,11 @@ export const Navbar = () => {
                                         <Link
                                             key={item.href}
                                             href={item.href}
-                                            className="px-4 py-3 rounded-2xl font-sans text-base font-bold hover:bg-brand-burgundy/5 transition-colors"
+                                            aria-current={normalizedPathname === item.href ? "page" : undefined}
+                                            className={twMerge(
+                                                "px-4 py-3 rounded-2xl font-sans text-base font-bold hover:bg-brand-burgundy/5 transition-colors",
+                                                normalizedPathname === item.href && "bg-brand-burgundy/10"
+                                            )}
                                             onClick={() => setMobileOpen(false)}
                                         >
                                             {language === "en" ? item.nameEn : item.nameAr}
