@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
-import { Instagram, Twitter, Linkedin, Mail } from "lucide-react";
 import { clsx } from "clsx";
 
 export const Footer = () => {
@@ -42,13 +41,13 @@ export const Footer = () => {
         <footer className={clsx("py-20 px-6 md:px-12 transition-colors duration-500", themeClass)}>
             <div className="max-w-7xl mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-2">
-                        <Link href="/" className="font-display text-4xl md:text-5xl uppercase mb-6 block">
+                        <Link href="/" className="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-6 block">
                             {language === "en" ? "Flow for Her" : "دورتك"}
                         </Link>
-                        <p className="font-sans text-lg opacity-80 max-w-sm">
+                        <p className="font-sans text-base sm:text-lg opacity-80 max-w-sm">
                             {language === "en"
                                 ? "Empowering women and girls in Syria through education, advocacy, and dignity."
                                 : "تمكين النساء والفتيات في سوريا من خلال التعليم والمناصرة والكرامة."}
@@ -67,26 +66,6 @@ export const Footer = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-
-                    {/* Socials & Contact */}
-                    <div>
-                        <h3 className="font-display text-xl uppercase mb-6 opacity-60">Connect</h3>
-                        <div className="flex gap-4 mb-8">
-                            <a href="#" className="p-3 rounded-full border border-current hover:bg-current hover:text-inherit hover:bg-opacity-10 transition-colors">
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="p-3 rounded-full border border-current hover:bg-current hover:text-inherit hover:bg-opacity-10 transition-colors">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="p-3 rounded-full border border-current hover:bg-current hover:text-inherit hover:bg-opacity-10 transition-colors">
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                        </div>
-                        <a href="mailto:contact@flowforher.org" className="flex items-center gap-2 font-sans text-lg font-bold hover:gap-3 transition-all">
-                            <Mail className="w-5 h-5" />
-                            <span>contact@flowforher.org</span>
-                        </a>
                     </div>
                 </div>
 

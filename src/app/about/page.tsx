@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function About() {
@@ -5,12 +6,12 @@ export default function About() {
         <div className="min-h-screen bg-brand-deep-burgundy text-brand-cream font-sans">
 
             {/* SECTION ONE: THE MOVEMENT */}
-            <section className="pt-32 pb-20 px-6 md:px-12 border-b border-brand-cream/10">
+            <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-6 md:px-12 border-b border-brand-cream/10">
                 <div className="max-w-6xl mx-auto">
 
                     {/* The Manifesto */}
                     <div className="mb-24">
-                        <h1 className="font-display text-7xl md:text-9xl uppercase leading-[0.8] mb-8">
+                        <h1 className="font-display text-[clamp(2.75rem,12vw,4.25rem)] md:text-9xl uppercase leading-[0.9] md:leading-[0.8] mb-8 text-balance max-w-[94vw]">
                             Dignity <br /> Is Not <br /> Optional
                         </h1>
                         <p className="text-xl md:text-3xl font-light leading-relaxed max-w-3xl border-l-4 border-brand-red pl-6">
@@ -58,28 +59,40 @@ export default function About() {
             </section>
 
             {/* SECTION TWO: THE FOUNDER */}
-            <section className="py-24 px-6 md:px-12 bg-brand-cream text-brand-deep-burgundy">
+            <section className="py-20 md:py-24 px-6 md:px-12 bg-brand-cream text-brand-deep-burgundy">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
 
                     {/* Profile Header */}
                     <div className="lg:col-span-5">
-                        <div className="sticky top-32">
-                            {/* Photo Placeholder */}
-                            <div className="aspect-[3/4] w-full max-w-sm bg-brand-deep-burgundy/10 rounded-2xl mb-8 flex items-center justify-center relative overflow-hidden">
-                                <span className="text-brand-deep-burgundy/20 font-display text-xl uppercase tracking-widest">
-                                    Giuliana Farraj
-                                </span>
-                                {/* 
-                   Replace above span with <Image src="..." /> when ready.
-                   Ensure image has object-cover.
-                 */}
+                        <div className="lg:sticky lg:top-32">
+                            {/* Photo */}
+                            <div className="aspect-[3/4] w-full max-w-sm bg-brand-deep-burgundy/10 rounded-2xl mb-8 relative overflow-hidden">
+                                <Image
+                                    src="/giuliana-farraj-headshot.png"
+                                    alt="Giuliana Farraj headshot"
+                                    fill
+                                    priority
+                                    className="object-cover"
+                                />
                             </div>
 
                             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.85] mb-4 text-brand-red break-words">
                                 Giuliana <br /> Farraj
                             </h2>
                             <p className="text-xl font-bold uppercase tracking-widest mb-2">Founder & Visionary</p>
-                            <p className="text-lg opacity-80 mb-8">Huntley High School <br /> Global Scholar</p>
+                            <div className="flex items-start justify-between gap-6 mb-8">
+                                <p className="text-lg opacity-80">
+                                    Huntley High School <br /> Global Scholar
+                                </p>
+                                <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 -mt-6 transform -translate-x-6 md:-translate-x-4">
+                                    <Image
+                                        src="/IllinoisglobalScholarCertificate.png"
+                                        alt="Illinois Global Scholar Certificate badge"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
 
                             <div className="inline-flex items-center gap-2 border-b-2 border-brand-deep-burgundy pb-1 hover:opacity-75 transition-opacity cursor-pointer">
                                 <span className="uppercase font-bold tracking-wide">Global Scholar Capstone</span>

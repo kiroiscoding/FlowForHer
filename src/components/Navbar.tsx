@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
     { nameEn: "About", nameAr: "من نحن", href: "/about" },
@@ -19,7 +20,16 @@ export const Navbar = () => {
     const { language, toggleLanguage, direction } = useLanguage();
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
-    const [isIntro, setIsIntro] = useState(true);
+    const isKnownRoute =
+        pathname === "/" ||
+        pathname === "/about" ||
+        pathname === "/education" ||
+        pathname === "/resources" ||
+        pathname === "/contact";
+    // IMPORTANT: Don't show the intro animation on unknown routes (404),
+    // otherwise the 404 page feels like a normal load-in.
+    const [isIntro, setIsIntro] = useState(isKnownRoute);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     // Determine color based on path (simplified for now)
     const getThemeColor = (path: string) => {
@@ -48,6 +58,17 @@ export const Navbar = () => {
     }, []);
 
     useEffect(() => {
+        // Close mobile menu on route change
+        setMobileOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
+        // If we land on an unknown route (404), immediately disable intro.
+        if (!isKnownRoute) {
+            setIsIntro(false);
+            document.body.style.overflow = "unset";
+            return;
+        }
         // Lock scroll during intro
         if (isIntro) {
             document.body.style.overflow = "hidden";
@@ -61,7 +82,7 @@ export const Navbar = () => {
         }, 1500); // Faster intro
 
         return () => clearTimeout(timer);
-    }, [isIntro]);
+    }, [isIntro, isKnownRoute]);
 
     return (
         <>
@@ -99,7 +120,7 @@ export const Navbar = () => {
             >
                 <motion.div
                     className={twMerge(
-                        "relative flex items-center justify-between px-6 py-3 rounded-full shadow-lg transition-all duration-500 ease-in-out backdrop-blur-md bg-opacity-90 border",
+                        "relative flex items-center justify-between px-4 md:px-6 py-3 rounded-full shadow-lg transition-all duration-500 ease-in-out backdrop-blur-md bg-opacity-90 border",
                         scrolled ? "w-[90%] md:w-[80%] lg:w-[70%]" : "w-[95%] md:w-[90%]",
                         themeClass
                     )}
@@ -124,7 +145,7 @@ export const Navbar = () => {
                             }}
                             className="text-current"
                         >
-                            <span className="font-display text-2xl uppercase block whitespace-nowrap">
+                            <span className="font-display text-xl sm:text-2xl uppercase block whitespace-nowrap">
                                 {language === "en" ? "Flow for Her" : "دورتك"}
                             </span>
                         </motion.div>
@@ -132,7 +153,7 @@ export const Navbar = () => {
 
                     {/* Links */}
                     <motion.div
-                        className="hidden md:flex items-center gap-8 font-sans font-medium text-sm tracking-wide"
+                        className="hidden lg:flex items-center gap-8 font-sans font-medium text-sm tracking-wide"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isIntro ? 0 : 1 }}
                         transition={{ delay: 0.6, duration: 0.5 }}
@@ -146,7 +167,7 @@ export const Navbar = () => {
 
                     {/* Actions */}
                     <motion.div
-                        className="flex items-center gap-4"
+                        className="flex items-center gap-2 sm:gap-4"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isIntro ? 0 : 1 }}
                         transition={{ delay: 0.7, duration: 0.5 }}
@@ -157,13 +178,43 @@ export const Navbar = () => {
                         >
                             {language === "en" ? "AR" : "EN"}
                         </button>
-                        <Link
-                            href="/donate"
-                            className="hidden sm:block px-4 py-2 rounded-full bg-white text-black font-bold text-xs uppercase hover:scale-105 transition-transform"
+                        {/* Mobile menu toggle */}
+                        <button
+                            type="button"
+                            onClick={() => setMobileOpen((v) => !v)}
+                            className="lg:hidden p-2 rounded-full border border-current hover:bg-white/20 transition-colors"
+                            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={mobileOpen}
                         >
-                            {language === "en" ? "Donate" : "تبرع"}
-                        </Link>
+                            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                        </button>
                     </motion.div>
+
+                    {/* Mobile menu */}
+                    <AnimatePresence>
+                        {mobileOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                transition={{ duration: 0.18, ease: "easeOut" }}
+                                className="lg:hidden absolute left-3 right-3 top-[calc(100%+10px)] rounded-3xl border border-brand-burgundy/15 bg-brand-cream text-brand-burgundy shadow-2xl overflow-hidden"
+                            >
+                                <div className="p-4 flex flex-col gap-3">
+                                    {navItems.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            className="px-4 py-3 rounded-2xl font-sans text-base font-bold hover:bg-brand-burgundy/5 transition-colors"
+                                            onClick={() => setMobileOpen(false)}
+                                        >
+                                            {language === "en" ? item.nameEn : item.nameAr}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </motion.div>
             </motion.nav>
         </>

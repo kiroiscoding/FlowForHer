@@ -34,11 +34,11 @@ export const ImpactSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                         {/* Main Statement Block */}
-                        <div className="lg:col-span-3 mb-16 text-center">
-                            <h2 className="font-display text-5xl md:text-7xl text-brand-burgundy uppercase mb-4">
+                        <div className="lg:col-span-3 mb-12 md:mb-16 text-center">
+                            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl text-brand-burgundy uppercase mb-4 text-balance">
                                 {language === "en" ? "The Silent Crisis" : "الأزمة الصامتة"}
                             </h2>
-                            <p className="font-sans text-xl text-brand-burgundy/80 max-w-3xl mx-auto">
+                            <p className="font-sans text-lg sm:text-xl text-brand-burgundy/80 max-w-3xl mx-auto">
                                 {language === "en"
                                     ? "Menstrual stigma and lack of access are holding girls back in Syria."
                                     : "وصمة العار ونقص الموارد يعيقان الفتيات في سوريا."}
@@ -53,12 +53,12 @@ export const ImpactSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                                className={`p-8 md:p-12 rounded-3xl ${stat.color} flex flex-col justify-center items-center text-center aspect-square md:aspect-auto md:min-h-[400px] hover:scale-105 transition-transform duration-300 shadow-xl`}
+                                className={`p-6 sm:p-8 md:p-12 rounded-3xl ${stat.color} flex flex-col justify-center items-center text-center aspect-auto min-h-[260px] sm:min-h-[320px] md:min-h-[400px] hover:scale-105 transition-transform duration-300 shadow-xl`}
                             >
-                                <span className="font-display text-7xl md:text-9xl mb-4 block">
+                                <span className="font-display text-6xl sm:text-7xl md:text-9xl mb-3 sm:mb-4 block">
                                     {stat.value}
                                 </span>
-                                <span className="font-sans text-xl md:text-2xl font-bold uppercase tracking-wide">
+                                <span className="font-sans text-base sm:text-lg md:text-2xl font-bold uppercase tracking-wide">
                                     {stat.label}
                                 </span>
                             </motion.div>

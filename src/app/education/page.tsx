@@ -52,10 +52,10 @@ export default function Education() {
 
                 {/* Header */}
                 <div className="mb-20">
-                    <h1 className="font-display text-6xl md:text-8xl uppercase mb-6 leading-none">
+                    <h1 className="font-display text-[clamp(2rem,8.5vw,3.1rem)] sm:text-[clamp(2.25rem,8.5vw,3.5rem)] md:text-8xl uppercase mb-6 leading-[1] md:leading-none text-balance">
                         Educational <br /> Curriculum
                     </h1>
-                    <p className="text-xl md:text-2xl font-light opacity-90 max-w-2xl leading-relaxed">
+                    <p className="text-lg sm:text-xl md:text-2xl font-light opacity-90 max-w-2xl leading-relaxed">
                         Our comprehensive, bilingual guide to menstrual health. Download the modules below to start learning and teaching.
                     </p>
                 </div>
@@ -65,7 +65,7 @@ export default function Education() {
                     {modules.map((module) => (
                         <div
                             key={module.id}
-                            className="bg-white/10 border border-white/20 rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 group flex flex-col justify-between min-h-[300px]"
+                            className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 hover:bg-white/20 transition-all duration-300 group flex flex-col justify-between min-h-[260px] sm:min-h-[300px]"
                         >
                             <div>
                                 <div className="flex justify-between items-start mb-6">
