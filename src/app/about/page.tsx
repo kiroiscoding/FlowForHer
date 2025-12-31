@@ -94,10 +94,15 @@ export default function About() {
                                 </div>
                             </div>
 
-                            <div className="inline-flex items-center gap-2 border-b-2 border-brand-deep-burgundy pb-1 hover:opacity-75 transition-opacity cursor-pointer">
+                            <a
+                                href="https://global-illinois.org/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 border-b-2 border-brand-deep-burgundy pb-1 hover:opacity-75 transition-opacity"
+                            >
                                 <span className="uppercase font-bold tracking-wide">Global Scholar Capstone</span>
                                 <ArrowRight className="w-5 h-5" />
-                            </div>
+                            </a>
                         </div>
                     </div>
 
