@@ -161,20 +161,29 @@ export const Navbar = () => {
                         animate={{ opacity: isIntro ? 0 : 1 }}
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                        {navItems.map((item) => (
+                        {navItems.map((item) => {
+                            const isActive = normalizedPathname === item.href;
+                            return (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                aria-current={normalizedPathname === item.href ? "page" : undefined}
+                                aria-current={isActive ? "page" : undefined}
                                 className={twMerge(
                                     "relative hover:opacity-75 transition-opacity",
-                                    normalizedPathname === item.href &&
-                                        "opacity-100 after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-current after:rounded-full"
+                                    isActive && "opacity-100"
                                 )}
                             >
-                                {language === "en" ? item.nameEn : item.nameAr}
+                                {isActive && (
+                                    <motion.span
+                                        layoutId="navbar-active-underline"
+                                        transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                                        className="absolute left-0 right-0 -bottom-2 h-[2px] bg-current rounded-full"
+                                    />
+                                )}
+                                <span className="relative z-10">{language === "en" ? item.nameEn : item.nameAr}</span>
                             </Link>
-                        ))}
+                            );
+                        })}
                     </motion.div>
 
                     {/* Actions */}
@@ -213,20 +222,30 @@ export const Navbar = () => {
                                 className="lg:hidden absolute left-3 right-3 top-[calc(100%+10px)] rounded-3xl border border-brand-burgundy/15 bg-brand-cream text-brand-burgundy shadow-2xl overflow-hidden"
                             >
                                 <div className="p-4 flex flex-col gap-3">
-                                    {navItems.map((item) => (
+                                    {navItems.map((item) => {
+                                        const isActive = normalizedPathname === item.href;
+                                        return (
                                         <Link
                                             key={item.href}
                                             href={item.href}
-                                            aria-current={normalizedPathname === item.href ? "page" : undefined}
+                                            aria-current={isActive ? "page" : undefined}
                                             className={twMerge(
-                                                "px-4 py-3 rounded-2xl font-sans text-base font-bold hover:bg-brand-burgundy/5 transition-colors",
-                                                normalizedPathname === item.href && "bg-brand-burgundy/10"
+                                                "relative px-4 py-3 rounded-2xl font-sans text-base font-bold hover:bg-brand-burgundy/5 transition-colors overflow-hidden",
+                                                isActive && "opacity-100"
                                             )}
                                             onClick={() => setMobileOpen(false)}
                                         >
-                                            {language === "en" ? item.nameEn : item.nameAr}
+                                            {isActive && (
+                                                <motion.span
+                                                    layoutId="navbar-active-mobile"
+                                                    transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                                                    className="absolute inset-0 bg-brand-burgundy/10 rounded-2xl"
+                                                />
+                                            )}
+                                            <span className="relative z-10">{language === "en" ? item.nameEn : item.nameAr}</span>
                                         </Link>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </motion.div>
                         )}
