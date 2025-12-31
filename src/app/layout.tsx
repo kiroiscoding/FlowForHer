@@ -21,6 +21,9 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   title: "Flow for Her",
   description: "A bilingual educational platform for menstrual health in Syria.",
+  icons: {
+    icon: [{ url: "/FlowforherFAVICON.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
