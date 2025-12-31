@@ -8,12 +8,12 @@ export const ImpactSection = () => {
 
     const stats = [
         {
-            value: language === "en" ? "+7 million" : "+٧ مليون",
+            value: language === "en" ? "+7M" : "+٧م",
             label: language === "en" ? "Not receiving any education" : "لا يتلقون أي تعليم",
             color: "bg-brand-red text-white",
         },
         {
-            value: language === "en" ? "76.5%" : "٧٦.٥٪",
+            value: language === "en" ? "77%" : "٧٧٪",
             label: language === "en" ? "Lack access to products" : "يفتقرن للمنتجات الصحية",
             color: "bg-brand-amber text-brand-burgundy",
         },
