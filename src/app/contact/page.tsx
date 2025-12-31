@@ -24,8 +24,8 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <h3 className="font-display text-xl uppercase mb-1">Email Us</h3>
-                                    <a href="mailto:contact@flowforher.org" className="text-lg opacity-80 hover:opacity-100 transition-opacity">
-                                        contact@flowforher.org
+                                    <a href="mailto:contact@flowforher.com" className="text-lg opacity-80 hover:opacity-100 transition-opacity">
+                                        contact@flowforher.com
                                     </a>
                                 </div>
                             </div>
