@@ -49,6 +49,7 @@ jobs:
           npm run build
         env:
           NEXT_PUBLIC_BASE_PATH_OVERRIDE: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+          NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
