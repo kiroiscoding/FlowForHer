@@ -174,9 +174,19 @@ export default function About() {
                             <p className="text-xl font-bold uppercase tracking-widest mb-2 text-brand-amber">
                                 Web Developer & Technical Lead
                             </p>
-                            <p className="text-lg opacity-80 mb-8">
-                                Huntley High School <br /> Senior
-                            </p>
+                            <div className="flex items-start justify-between gap-6 mb-8">
+                                <p className="text-lg opacity-80">
+                                    Huntley High School <br /> Senior
+                                </p>
+                                <div className="relative w-20 h-20 md:w-20 md:h-20 shrink-0 -mt-2 transform -translate-x-6 md:-translate-x-4">
+                                    <Image
+                                        src="/NASA_Badge.png"
+                                        alt="NASA ADC badge"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
 
                             <a
                                 href="https://kerellos.com"
