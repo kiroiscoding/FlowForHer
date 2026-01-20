@@ -39,6 +39,18 @@ body {
   background: var(--page-bg, var(--color-brand-cream));
   color: var(--color-brand-burgundy);
   font-family: var(--font-sans);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection where users expect it (forms, editable content, and opt-in areas) */
+input,
+textarea,
+select,
+[contenteditable="true"],
+.select-text {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 html,

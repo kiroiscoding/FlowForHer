@@ -151,6 +151,88 @@ export default function About() {
                 </div>
             </section>
 
+            {/* SECTION THREE: THE BUILDER */}
+            <section className="py-20 md:py-24 px-6 md:px-12 border-t border-brand-cream/10">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+                    {/* Profile Header */}
+                    <div className="lg:col-span-5">
+                        <div className="lg:sticky lg:top-32">
+                            {/* Photo */}
+                            <div className="aspect-[3/4] w-full max-w-sm bg-brand-cream/10 rounded-2xl mb-8 relative overflow-hidden">
+                                <Image
+                                    src="/kerellos-abdelmalak-headshot.png"
+                                    alt="Kerellos Abdelmalak headshot"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+
+                            <h2 className="font-display text-[clamp(2rem,8vw,3rem)] sm:text-[clamp(1.35rem,5vw,2.2rem)] md:text-3xl lg:text-4xl uppercase leading-[0.82] mb-4 text-brand-cream break-words max-w-[15ch]">
+                                Kerellos <br /> Abdelmalak
+                            </h2>
+                            <p className="text-xl font-bold uppercase tracking-widest mb-2 text-brand-amber">
+                                Web Developer & Technical Lead
+                            </p>
+                            <p className="text-lg opacity-80 mb-8">
+                                Huntley High School <br /> Senior
+                            </p>
+
+                            <a
+                                href="https://kerellos.com"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 border-b-2 border-brand-cream/80 pb-1 hover:opacity-80 transition-opacity"
+                            >
+                                <span className="uppercase font-bold tracking-wide">Kerellos.com</span>
+                                <ArrowRight className="w-5 h-5" />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Profile Content */}
+                    <div className="lg:col-span-7 space-y-16 lg:pt-8">
+                        <div>
+                            <h3 className="font-display text-4xl uppercase mb-6 text-brand-red">Built for Impact</h3>
+                            <p className="text-xl leading-relaxed mb-6 opacity-90">
+                                Kerellos leads the technical execution behind Flow For Her, translating a bold visual identity into a fast, accessible, and reliable web experience. His role is to architect a platform that can scale as the mission grows.
+                            </p>
+                            <p className="text-xl leading-relaxed opacity-90">
+                                Originally from Egypt, he understands how language, culture, and access shape whether education actually reaches people. That proximity to the region is part of why he is building this project: to help deliver clear, bilingual learning that is easy to use on any phone, anywhere.
+                            </p>
+                            <p className="text-xl leading-relaxed opacity-90 mt-6">
+                                He is also a NASA ADC 2025 Finalist, bringing the same competition-tested focus on execution, iteration, and delivery to a mission that deserves real quality, not a rushed prototype.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="font-display text-3xl md:text-4xl uppercase mb-6 text-brand-amber">Design, Systematized</h3>
+                            <p className="text-xl leading-relaxed opacity-90">
+                                From route-based theming to animation choreography, Kerellos ensures the site feels cohesive across every page and every device. The goal is a design system that reads as intentional, where typography, color, spacing, and motion reinforce trust.
+                            </p>
+                        </div>
+
+                        <div className="bg-brand-cream/5 p-10 rounded-3xl">
+                            <h3 className="font-display text-3xl uppercase mb-6 text-brand-cream">Future Trajectory</h3>
+                            <ul className="space-y-4 text-lg">
+                                <li className="flex items-start gap-3">
+                                    <span className="mt-1.5 w-2 h-2 rounded-full bg-brand-red shrink-0" />
+                                    <span>Electrical Engineering track with a focus on building systems that work in the real world.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="mt-1.5 w-2 h-2 rounded-full bg-brand-red shrink-0" />
+                                    <span>Many side projects that sharpen speed, problem-solving, and craft.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="mt-1.5 w-2 h-2 rounded-full bg-brand-red shrink-0" />
+                                    <span>Mission-driven work that turns design into access, especially for education and health.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     );
 }
