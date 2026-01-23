@@ -33,6 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="effd14b5-373f-42d4-bec7-c8bdfea1ed32"
+        />
+      </head>
       <body
         className={`${climateCrisis.variable} ${ibmPlexSansArabic.variable} antialiased font-sans`}
       >
