@@ -130,6 +130,30 @@ export const EDUCATION_MODULES: EducationModule[] = [
         explanationAr:
           "نعم—قد تختلف مدة الدورة وكمية النزيف والأعراض. الأهم هو ملاحظة نمطك الخاص.",
       },
+      {
+        id: "q2",
+        questionEn: "A common cycle length range is about 21–35 days.",
+        questionAr: "المدى الشائع لطول الدورة هو تقريباً ٢١–٣٥ يوماً.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Many cycles fall in this range. What matters most is what’s normal for you and noticing changes.",
+        explanationAr:
+          "تقع الكثير من الدورات ضمن هذا المدى. الأهم هو ما هو طبيعي لكِ وملاحظة أي تغيّرات.",
+      },
+      {
+        id: "q3",
+        questionEn: "If pain is severe or bleeding is extremely heavy, you should seek help.",
+        questionAr: "إذا كان الألم شديداً أو كان النزيف غزيراً جداً، يجب طلب المساعدة.",
+        optionsEn: ["Yes", "No"],
+        optionsAr: ["نعم", "لا"],
+        correctIndex: 0,
+        explanationEn:
+          "Severe symptoms can signal a health issue. Asking a trusted adult or a clinician is a safe step.",
+        explanationAr:
+          "قد تشير الأعراض الشديدة إلى مشكلة صحية. طلب المساعدة من شخص موثوق أو مختص صحي خطوة آمنة.",
+      },
     ],
     glossary: [
       {
@@ -205,6 +229,30 @@ export const EDUCATION_MODULES: EducationModule[] = [
         explanationEn: "It helps prevent infections and keeps you safe and comfortable.",
         explanationAr: "يساعد على منع الالتهابات ويحافظ على السلامة والراحة.",
       },
+      {
+        id: "q2",
+        questionEn: "Changing pads regularly can help prevent irritation and odor.",
+        questionAr: "تغيير الفوط بانتظام يساعد على منع التهيّج والروائح.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Yes. Regular changes help keep the area clean and reduce discomfort.",
+        explanationAr:
+          "نعم. التغيير المنتظم يساعد على النظافة وتقليل الانزعاج.",
+      },
+      {
+        id: "q3",
+        questionEn: "If pain is severe and affects daily life, it’s okay to ask for medical advice.",
+        questionAr: "إذا كان الألم شديداً ويؤثر على الحياة اليومية، من الطبيعي طلب نصيحة طبية.",
+        optionsEn: ["Yes", "No"],
+        optionsAr: ["نعم", "لا"],
+        correctIndex: 0,
+        explanationEn:
+          "Severe pain isn’t something you have to “push through.” Support is available.",
+        explanationAr:
+          "الألم الشديد ليس شيئاً يجب تحمّله وحدكِ. الدعم متوفر.",
+      },
     ],
     glossary: [
       {
@@ -257,6 +305,30 @@ export const EDUCATION_MODULES: EducationModule[] = [
         explanationEn: "Accurate information replaces shame and rumors with understanding.",
         explanationAr: "المعلومات الصحيحة تستبدل العار والشائعات بالفهم.",
       },
+      {
+        id: "q2",
+        questionEn: "Myths often spread when people can’t talk openly or access education.",
+        questionAr: "تنتشر الخرافات غالباً عندما يصعب الحديث بصراحة أو الوصول للتعليم.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "When conversations are blocked, rumors fill the gap. Education protects health and dignity.",
+        explanationAr:
+          "عندما يُمنع الحديث، تملأ الشائعات الفراغ. التعليم يحمي الصحة والكرامة.",
+      },
+      {
+        id: "q3",
+        questionEn: "Many people can exercise safely during their period.",
+        questionAr: "يمكن للكثيرات ممارسة الرياضة بأمان أثناء الدورة الشهرية.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Often yes—listen to your body and choose gentle movement if needed.",
+        explanationAr:
+          "غالباً نعم—استمعي لجسمكِ واختاري حركة خفيفة إذا لزم الأمر.",
+      },
     ],
     glossary: [],
   },
@@ -280,7 +352,44 @@ export const EDUCATION_MODULES: EducationModule[] = [
       },
     ],
     accordions: [],
-    quiz: [],
+    quiz: [
+      {
+        id: "q1",
+        questionEn: "Drinking water can support energy during your cycle.",
+        questionAr: "شرب الماء يمكن أن يدعم الطاقة خلال الدورة.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Hydration supports concentration, energy, and overall comfort.",
+        explanationAr:
+          "السوائل تدعم التركيز والطاقة والراحة بشكل عام.",
+      },
+      {
+        id: "q2",
+        questionEn: "Iron-rich foods may help if you feel tired, especially with heavier bleeding.",
+        questionAr: "قد تساعد الأطعمة الغنية بالحديد إذا شعرتِ بالتعب، خصوصاً مع نزيف أغزر.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Iron supports healthy blood. If fatigue is persistent, consider talking to a clinician.",
+        explanationAr:
+          "الحديد يدعم صحة الدم. إذا استمر التعب، فكّري بالتحدث مع مختص صحي.",
+      },
+      {
+        id: "q3",
+        questionEn: "Small, consistent habits matter more than perfect routines.",
+        questionAr: "العادات الصغيرة المستمرة أهم من الروتين المثالي.",
+        optionsEn: ["Agree", "Disagree"],
+        optionsAr: ["أوافق", "لا أوافق"],
+        correctIndex: 0,
+        explanationEn:
+          "Sustainable choices (sleep, hydration, movement) add up over time.",
+        explanationAr:
+          "الخيارات القابلة للاستمرار (النوم، الماء، الحركة) تتراكم فوائدها مع الوقت.",
+      },
+    ],
     glossary: [],
   },
   {
@@ -303,7 +412,44 @@ export const EDUCATION_MODULES: EducationModule[] = [
       },
     ],
     accordions: [],
-    quiz: [],
+    quiz: [
+      {
+        id: "q1",
+        questionEn: "Hormones can affect mood and emotions during the cycle.",
+        questionAr: "يمكن للهرمونات أن تؤثر على المزاج والمشاعر خلال الدورة.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Mood changes can be real. Support, rest, and routines can help.",
+        explanationAr:
+          "تغيرات المزاج قد تكون حقيقية. الدعم والراحة والروتين قد يساعدان.",
+      },
+      {
+        id: "q2",
+        questionEn: "Rest and hydration can be part of self-care.",
+        questionAr: "الراحة وشرب الماء يمكن أن يكونا جزءاً من الرعاية الذاتية.",
+        optionsEn: ["Yes", "No"],
+        optionsAr: ["نعم", "لا"],
+        correctIndex: 0,
+        explanationEn:
+          "Self-care can be simple. Small steps can make hard days more manageable.",
+        explanationAr:
+          "الرعاية الذاتية يمكن أن تكون بسيطة. خطوات صغيرة قد تجعل الأيام الصعبة أسهل.",
+      },
+      {
+        id: "q3",
+        questionEn: "If emotions feel overwhelming or unsafe, you should reach out for help.",
+        questionAr: "إذا شعرتِ أن المشاعر ساحقة أو غير آمنة، يجب طلب المساعدة.",
+        optionsEn: ["Yes", "No"],
+        optionsAr: ["نعم", "لا"],
+        correctIndex: 0,
+        explanationEn:
+          "Reaching out is strength—talk to a trusted person or professional support when possible.",
+        explanationAr:
+          "طلب المساعدة قوة—تحدثي مع شخص موثوق أو دعم مختص عند الإمكان.",
+      },
+    ],
     glossary: [],
   },
   {
@@ -326,7 +472,44 @@ export const EDUCATION_MODULES: EducationModule[] = [
       },
     ],
     accordions: [],
-    quiz: [],
+    quiz: [
+      {
+        id: "q1",
+        questionEn: "Menstrual health is connected to dignity and human rights.",
+        questionAr: "صحة الدورة الشهرية مرتبطة بالكرامة وحقوق الإنسان.",
+        optionsEn: ["Agree", "Disagree"],
+        optionsAr: ["أوافق", "لا أوافق"],
+        correctIndex: 0,
+        explanationEn:
+          "Access to information and care affects education, safety, and equality.",
+        explanationAr:
+          "الوصول للمعلومات والرعاية يؤثر على التعليم والسلامة والمساواة.",
+      },
+      {
+        id: "q2",
+        questionEn: "Using respectful language can make conversations safer and easier.",
+        questionAr: "استخدام لغة محترمة يجعل الحديث أكثر أماناً وأسهل.",
+        optionsEn: ["True", "False"],
+        optionsAr: ["صحيح", "خطأ"],
+        correctIndex: 0,
+        explanationEn:
+          "Respect builds trust and reduces shame—especially when topics are stigmatized.",
+        explanationAr:
+          "الاحترام يبني الثقة ويقلل العار—خصوصاً مع المواضيع الموصومة.",
+      },
+      {
+        id: "q3",
+        questionEn: "Advocacy can start small: one conversation, one friend, one classroom.",
+        questionAr: "يمكن أن تبدأ المناصرة بخطوات صغيرة: محادثة واحدة، صديقة واحدة، صف واحد.",
+        optionsEn: ["Yes", "No"],
+        optionsAr: ["نعم", "لا"],
+        correctIndex: 0,
+        explanationEn:
+          "Change spreads through communities. Small actions can create safer norms.",
+        explanationAr:
+          "التغيير ينتشر داخل المجتمع. أفعال صغيرة يمكن أن تصنع معايير أكثر أماناً.",
+      },
+    ],
     glossary: [],
   },
 ];

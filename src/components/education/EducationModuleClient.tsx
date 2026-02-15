@@ -162,6 +162,13 @@ export function EducationModuleClient({ module, prevSlug, nextSlug }: Props) {
     moduleNavPrev: language === "en" ? "Previous module" : "الوحدة السابقة",
     moduleNavNext: language === "en" ? "Next module" : "الوحدة التالية",
     completeStep: language === "en" ? "Mark step complete" : "تأكيد إتمام الخطوة",
+    endTitle: language === "en" ? "End of Curriculum" : "نهاية المنهج",
+    endBody:
+      language === "en"
+        ? "You finished the last module. You can review any module, or explore trusted resources next."
+        : "لقد أنهيتِ آخر وحدة. يمكنكِ مراجعة أي وحدة، أو الانتقال لاستكشاف الموارد الموثوقة.",
+    endCtaPrimary: language === "en" ? "Back to Education" : "العودة إلى التعليم",
+    endCtaSecondary: language === "en" ? "Explore Resources" : "استكشاف الموارد",
   };
 
   return (
@@ -498,8 +505,24 @@ export function EducationModuleClient({ module, prevSlug, nextSlug }: Props) {
                   </p>
                 </Link>
               ) : (
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 opacity-40">
-                  <p className="text-xs uppercase tracking-wider">{ui.moduleNavNext}</p>
+                <div className="rounded-3xl border border-white/15 bg-white/5 p-6">
+                  <p className="text-xs uppercase tracking-wider opacity-70">{ui.endTitle}</p>
+                  <p className="mt-2 font-display text-2xl uppercase">{ui.endTitle}</p>
+                  <p className="mt-3 opacity-85 leading-relaxed">{ui.endBody}</p>
+                  <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                    <Link
+                      href="/education"
+                      className={`inline-flex items-center justify-center rounded-full border border-white/20 bg-white text-brand-rich-black font-bold uppercase tracking-wider text-xs px-5 py-3 hover:bg-white/90 transition-colors ${focusRing}`}
+                    >
+                      {ui.endCtaPrimary}
+                    </Link>
+                    <Link
+                      href="/resources"
+                      className={`inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 font-bold uppercase tracking-wider text-xs hover:bg-white/10 transition-colors ${focusRing}`}
+                    >
+                      {ui.endCtaSecondary}
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
