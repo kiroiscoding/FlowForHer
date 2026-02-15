@@ -9,27 +9,24 @@ import { Instagram, Mail } from "lucide-react";
 export const Footer = () => {
     const { language } = useLanguage();
     const pathname = usePathname();
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    const normalizedPathname =
+        basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) || "/" : pathname;
 
     const getFooterTheme = (path: string) => {
-        switch (path) {
-            case "/about":
-                // About page ends in cream, so let's make the footer contrast (Deep Burgundy)
-                // or match the bottom. User said "changes with the main color".
-                // The main color of About is Deep Burgundy.
-                return "bg-brand-deep-burgundy text-brand-cream border-brand-cream/10";
-            case "/education":
-                return "bg-brand-rich-black text-white border-white/10";
-            case "/resources":
-                return "bg-brand-amber text-brand-burgundy border-brand-burgundy/10";
-            case "/contact":
-                return "bg-brand-dark-green text-brand-cream border-brand-cream/10";
-            default:
-                // Home page ends in red (Explore Work section is red)
-                return "bg-brand-burgundy text-brand-cream border-brand-cream/10";
+        if (path.startsWith("/about")) {
+            // About page ends in cream, so let's make the footer contrast (Deep Burgundy)
+            // The main color of About is Deep Burgundy.
+            return "bg-brand-deep-burgundy text-brand-cream border-brand-cream/10";
         }
+        if (path.startsWith("/education")) return "bg-brand-rich-black text-white border-white/10";
+        if (path.startsWith("/resources")) return "bg-brand-amber text-brand-burgundy border-brand-burgundy/10";
+        if (path.startsWith("/contact")) return "bg-brand-dark-green text-brand-cream border-brand-cream/10";
+        // Home page ends in red (Explore Work section is red)
+        return "bg-brand-burgundy text-brand-cream border-brand-cream/10";
     };
 
-    const themeClass = getFooterTheme(pathname);
+    const themeClass = getFooterTheme(normalizedPathname);
 
     const links = [
         { nameEn: "About", nameAr: "من نحن", href: "/about" },

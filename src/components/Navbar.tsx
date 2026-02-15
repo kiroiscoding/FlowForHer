@@ -25,10 +25,10 @@ export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const isKnownRoute =
         normalizedPathname === "/" ||
-        normalizedPathname === "/about" ||
-        normalizedPathname === "/education" ||
-        normalizedPathname === "/resources" ||
-        normalizedPathname === "/contact";
+        normalizedPathname.startsWith("/about") ||
+        normalizedPathname.startsWith("/education") ||
+        normalizedPathname.startsWith("/resources") ||
+        normalizedPathname.startsWith("/contact");
     // IMPORTANT: Don't show the intro animation on unknown routes (404),
     // otherwise the 404 page feels like a normal load-in.
     const [isIntro, setIsIntro] = useState(isKnownRoute);
@@ -36,18 +36,11 @@ export const Navbar = () => {
 
     // Determine color based on path (simplified for now)
     const getThemeColor = (path: string) => {
-        switch (path) {
-            case "/about":
-                return "bg-brand-deep-burgundy text-brand-cream border-brand-cream/20";
-            case "/education":
-                return "bg-brand-rich-black text-white border-white/20";
-            case "/resources":
-                return "bg-brand-amber text-brand-burgundy border-brand-burgundy/20";
-            case "/contact":
-                return "bg-brand-dark-green text-brand-cream border-brand-cream/20";
-            default:
-                return "bg-brand-burgundy text-brand-cream border-white/20";
-        }
+        if (path.startsWith("/about")) return "bg-brand-deep-burgundy text-brand-cream border-brand-cream/20";
+        if (path.startsWith("/education")) return "bg-brand-rich-black text-white border-white/20";
+        if (path.startsWith("/resources")) return "bg-brand-amber text-brand-burgundy border-brand-burgundy/20";
+        if (path.startsWith("/contact")) return "bg-brand-dark-green text-brand-cream border-brand-cream/20";
+        return "bg-brand-burgundy text-brand-cream border-white/20";
     };
 
     const themeClass = getThemeColor(normalizedPathname);
@@ -162,7 +155,7 @@ export const Navbar = () => {
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
                         {navItems.map((item) => {
-                            const isActive = normalizedPathname === item.href;
+                            const isActive = normalizedPathname === item.href || normalizedPathname.startsWith(`${item.href}/`);
                             return (
                                 <Link
                                     key={item.href}
@@ -223,7 +216,8 @@ export const Navbar = () => {
                             >
                                 <div className="p-4 flex flex-col gap-3">
                                     {navItems.map((item) => {
-                                        const isActive = normalizedPathname === item.href;
+                                        const isActive =
+                                            normalizedPathname === item.href || normalizedPathname.startsWith(`${item.href}/`);
                                         return (
                                             <Link
                                                 key={item.href}
