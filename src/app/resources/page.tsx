@@ -1,30 +1,126 @@
 import { ArrowUpRight } from "lucide-react";
 
 export default function Resources() {
-    const resources = [
-        {
-            category: "International Organizations",
-            items: [
-                { name: "UNFPA - Menstrual Health", desc: "Global data and standards for menstrual health management.", link: "#" },
-                { name: "Save the Children Syria", desc: "Emergency relief and support for children in conflict zones.", link: "#" },
-                { name: "Period.org", desc: "Advocacy movement to end period poverty and stigma.", link: "#" },
-            ]
-        },
-        {
-            category: "Regional Support",
-            items: [
-                { name: "Syrian American Medical Society", desc: "Medical relief and healthcare development in Syria.", link: "#" },
-                { name: "Basmeh & Zeitooneh", desc: "Relief and development for marginalized communities.", link: "#" },
-            ]
-        },
-        {
-            category: "Educational Tools",
-            items: [
-                { name: "Menstrual Hygiene Day", desc: "Advocacy materials and global campaign resources.", link: "#" },
-                { name: "The Cup Effect", desc: "Education on sustainable menstrual products.", link: "#" },
-            ]
-        }
-    ];
+    const resources: Array<{
+        category: string;
+        items: Array<{ name: string; desc?: string; link: string }>;
+    }> = [
+            {
+                category: "Organizations & NGOs",
+                items: [
+                    {
+                        name: "Pride Pads Africa",
+                        desc: "An initiative combating period poverty through access and awareness.",
+                        link: "http://www.ywcaboulder.org/blog-collection/pridepads-africa-combatting-period-poverty-at-home-and-abroad",
+                    },
+                    {
+                        name: "The Borgen Project",
+                        desc: "Research and advocacy on poverty and policy—including menstrual equity.",
+                        link: "https://borgenproject.org/combatting-period-poverty/",
+                    },
+                    {
+                        name: "Period.org",
+                        desc: "A global movement to end period poverty and stigma.",
+                        link: "https://period.org/",
+                    },
+                    {
+                        name: "Dawrati",
+                        desc: "Context and reporting on period poverty in Lebanon.",
+                        link: "https://borgenproject.org/period-poverty-in-lebanon/",
+                    },
+                    {
+                        name: "The Period Project",
+                        desc: "Education and access initiatives supporting menstrual equity.",
+                        link: "https://periodproject.org/",
+                    },
+                    {
+                        name: "Wing Women Lebanon",
+                        desc: "Education and initiatives supporting menstrual health and dignity.",
+                        link: "https://wingwomanlebanon.com/",
+                    },
+                    {
+                        name: "Anera",
+                        desc: "Humanitarian support and development work in the Middle East.",
+                        link: "https://www.anera.org/",
+                    },
+                ],
+            },
+            {
+                category: "Research and Reports",
+                items: [
+                    {
+                        name: "What is Period Poverty? (Period.org)",
+                        desc: "A clear explainer on what period poverty is and why it matters.",
+                        link: "https://period.org/periodpoverty",
+                    },
+                    {
+                        name: "Period Poverty – A Global Crisis (WIIS)",
+                        desc: "A report overview framing period poverty as a global equity and dignity issue.",
+                        link: "https://wiisglobal.org/period-poverty-a-global-crisis/",
+                    },
+                    {
+                        name: "Video: Addressing Period Poverty",
+                        desc: "A short video introducing the issue and why it matters.",
+                        link: "https://www.youtube.com/watch?v=MlXqKwVh8OU",
+                    },
+                    {
+                        name: "UNICEF MENA: Period Poverty (report)",
+                        desc: "Regional analysis and findings on period poverty across the Middle East and North Africa.",
+                        link: "https://www.unicef.org/mena/reports/period-poverty",
+                    },
+                ],
+            },
+            {
+                category: "Stigma Against Period Poverty",
+                items: [
+                    {
+                        name: "Stigma and menstrual health (Archives of Public Health)",
+                        desc: "Research on stigma and its impact on menstrual health outcomes.",
+                        link: "http://archpublichealth.biomedcentral.com/articles/10.1186/s13690-025-01557-9",
+                    },
+                    {
+                        name: "J-PAL evaluation: addressing menstrual stigma + hygiene",
+                        desc: "Evidence on interventions that improve education and psychosocial wellbeing.",
+                        link: "http://www.povertyactionlab.org/evaluation/addressing-menstrual-stigma-and-hygiene-improve-education-and-psychosocial-well-being",
+                    },
+                ],
+            },
+            {
+                category: "Access to Products",
+                items: [
+                    {
+                        name: "The Borgen Project: Menstrual products",
+                        desc: "Explains barriers to access and how product availability affects equity.",
+                        link: "http://borgenproject.org/menstrual-products/",
+                    },
+                    {
+                        name: "MEPC: Menstruation and humanitarian aid in Gaza",
+                        desc: "A commentary on period poverty in humanitarian contexts and aid delivery.",
+                        link: "https://mepc.org/commentaries/menstruation-and-humanitarian-aid-period-poverty-in-gaza/",
+                    },
+                ],
+            },
+            {
+                category: "Female Healthcare Workers in the Middle East",
+                items: [
+                    {
+                        name: "UNFPA: female health workers in Syria",
+                        desc: "How women health workers are leading care for women and girls in crisis settings.",
+                        link: "http://www.unfpa.org/news/after-13-years-crisis-we-hear-female-health-workers-syria-leading-charge-women-and-girls",
+                    },
+                    {
+                        name: "PMC article (open access)",
+                        desc: "Open-access research relevant to women’s health work and systems under strain.",
+                        link: "http://pmc.ncbi.nlm.nih.gov/articles/PMC11367701/",
+                    },
+                    {
+                        name: "Doctors Without Borders: excluding women from medical institutes",
+                        desc: "How exclusion threatens the future healthcare workforce and services.",
+                        link: "http://www.doctorswithoutborders.org/latest/excluding-afghan-women-medical-institutes-threatens-future-health-care-country",
+                    },
+                ],
+            },
+        ];
 
     return (
         <div className="min-h-screen bg-brand-amber text-brand-burgundy font-sans">
@@ -35,7 +131,7 @@ export default function Resources() {
                         Trusted <br /> Resources
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl opacity-80 max-w-2xl leading-relaxed font-medium">
-                        A curated list of organizations, reports, and tools supporting menstrual equity and humanitarian aid.
+                        Organizations, research, and tools supporting menstrual equity, health education, and humanitarian action.
                     </p>
                 </div>
 
@@ -50,15 +146,19 @@ export default function Resources() {
                                     <a
                                         key={i}
                                         href={item.link}
+                                        target="_blank"
+                                        rel="noreferrer"
                                         className="group block bg-brand-cream/50 p-8 rounded-3xl hover:bg-brand-cream transition-colors duration-300"
                                     >
                                         <div className="flex justify-between items-start mb-4">
                                             <h3 className="font-display text-xl leading-tight">{item.name}</h3>
                                             <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform" />
                                         </div>
-                                        <p className="text-lg opacity-80 leading-relaxed">
-                                            {item.desc}
-                                        </p>
+                                        {item.desc && (
+                                            <p className="text-lg opacity-80 leading-relaxed">
+                                                {item.desc}
+                                            </p>
+                                        )}
                                     </a>
                                 ))}
                             </div>

@@ -153,6 +153,11 @@ export function EducationModuleClient({ module, prevSlug, nextSlug }: Props) {
       language === "en"
         ? "We’ll add a lesson video here. For now, go through the steps below."
         : "سنضيف فيديو الدرس هنا. في الوقت الحالي، تابعي الخطوات أدناه.",
+    videoCreditTitle: language === "en" ? "Video credit" : "مصدر الفيديو",
+    videoCreditBody:
+      language === "en"
+        ? "All educational videos are from Wing Women Lebanon (Wing Association) and are not produced by Flow for Her. Videos are in Arabic with English subtitles."
+        : "جميع مقاطع الفيديو التعليمية من Wing Women Lebanon (جمعية Wing) وليست من إنتاج Flow for Her. الفيديوهات باللغة العربية مع ترجمة إنجليزية.",
     savedProgress:
       language === "en"
         ? "You have saved progress in this module."
@@ -249,16 +254,33 @@ export function EducationModuleClient({ module, prevSlug, nextSlug }: Props) {
         {/* Video */}
         <div className="mb-10">
           {module.youtubeId ? (
-            <div className="relative w-full overflow-hidden rounded-3xl border border-white/15 bg-black">
-              <div className="aspect-video w-full" />
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube-nocookie.com/embed/${module.youtubeId}`}
-                title={`${module.titleEn} video`}
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+            <div className="space-y-4">
+              <div className="relative w-full overflow-hidden rounded-3xl border border-white/15 bg-black">
+                <div className="aspect-video w-full" />
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src={`https://www.youtube-nocookie.com/embed/${module.youtubeId}`}
+                  title={`${module.titleEn} video`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="rounded-3xl border border-white/15 bg-white/5 p-5">
+                <p className="text-xs uppercase tracking-wider opacity-70">{ui.videoCreditTitle}</p>
+                <p className="mt-2 leading-relaxed opacity-90">{ui.videoCreditBody}</p>
+                <p className="mt-3 text-sm opacity-75">
+                  {language === "en" ? "Watch on YouTube:" : "المشاهدة على يوتيوب:"}{" "}
+                  <a
+                    href={`https://www.youtube.com/watch?v=${module.youtubeId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`underline underline-offset-4 hover:opacity-90 transition-opacity ${focusRing}`}
+                  >
+                    {language === "en" ? "Open video" : "فتح الفيديو"}
+                  </a>
+                </p>
+              </div>
             </div>
           ) : (
             <div className="rounded-3xl border border-white/15 bg-white/5 p-8">
