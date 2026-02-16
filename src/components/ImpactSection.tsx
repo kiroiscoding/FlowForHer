@@ -18,7 +18,18 @@ export const ImpactSection = () => {
             color: "bg-brand-amber text-brand-burgundy",
         },
         {
-            value: language === "en" ? "1 in 3" : "١ من ٣",
+            // NOTE: Arabic uses RTL wording, but numerals should remain stable.
+            // We render the Arabic version as JSX to avoid bidi reordering / broken shaping.
+            value:
+                language === "en" ? (
+                    "1 in 3"
+                ) : (
+                    <span dir="rtl" className="inline-flex items-baseline gap-2 [unicode-bidi:isolate]">
+                        <span className="font-display tabular-nums">١</span>
+                        <span className="font-sans font-semibold">من كل</span>
+                        <span className="font-display tabular-nums">٣</span>
+                    </span>
+                ),
             label: language === "en" ? "Feel shame regarding periods" : "يشعرن بالخجل",
             color: "bg-brand-burgundy text-brand-cream", // Changed to burgundy/cream for contrast against white
         },
@@ -55,7 +66,11 @@ export const ImpactSection = () => {
                                 transition={{ delay: index * 0.2, duration: 0.6 }}
                                 className={`p-6 sm:p-8 md:p-12 rounded-3xl ${stat.color} flex flex-col justify-center items-center text-center aspect-auto min-h-[260px] sm:min-h-[320px] md:min-h-[400px] hover:scale-105 transition-transform duration-300 shadow-xl`}
                             >
-                                <span className="font-display text-6xl sm:text-7xl md:text-9xl mb-3 sm:mb-4 block">
+                                <span
+                                    // Force numeric tokens to render LTR even in RTL (prevents + / % reordering)
+                                    dir="ltr"
+                                    className="font-display text-6xl sm:text-7xl md:text-9xl mb-3 sm:mb-4 inline-block tabular-nums [unicode-bidi:isolate]"
+                                >
                                     {stat.value}
                                 </span>
                                 <span className="font-sans text-base sm:text-lg md:text-2xl font-bold uppercase tracking-wide">

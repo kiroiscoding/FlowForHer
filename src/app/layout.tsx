@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Flow for Her is a bilingual (Arabic + English) menstrual health education platform focused on Syria—supporting puberty education, period poverty awareness, dignity, and access to trusted resources.",
+    "Flow for Her is an Arabic–English bilingual menstrual health education platform focused on Syria—supporting puberty education, period poverty awareness, dignity, and access to trusted resources.",
   icons: {
     icon: [{ url: "/FlowforherFAVICON.png", type: "image/png" }],
     apple: [{ url: "/FlowforherFAVICON.png", type: "image/png" }],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     title: SITE_NAME,
     description:
-      "Bilingual (Arabic + English) menstrual health education focused on Syria. Learn, share, and support dignity—plus resources on period poverty.",
+      "Arabic–English bilingual menstrual health education focused on Syria. Learn, share, and support dignity—plus resources on period poverty.",
     siteName: SITE_NAME,
     images: [
       {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: SITE_NAME,
     description:
-      "Bilingual (Arabic + English) menstrual health education focused on Syria—puberty, periods, stigma, and period poverty.",
+      "Arabic–English bilingual menstrual health education focused on Syria—puberty, periods, stigma, and period poverty.",
     images: ["/FlowforherFAVICON.png"],
   },
   robots: {

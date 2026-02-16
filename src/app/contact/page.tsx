@@ -4,7 +4,7 @@ import ContactClient from "./ContactClient";
 export const metadata: Metadata = {
     title: "Contact",
     description:
-        "Contact Flow for Her for partnerships, volunteering, or questions about bilingual (Arabic + English) menstrual health education and period poverty awareness.",
+        "Contact Flow for Her for partnerships, volunteering, or questions about Arabic–English bilingual menstrual health education and period poverty awareness.",
     alternates: { canonical: "/contact" },
 };
 

@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   const title = module.titleEn;
   const description =
-    `${module.descEn} Bilingual Arabic + English menstrual health education focused on Syria.`;
+    `${module.descEn} Arabic–English bilingual menstrual health education focused on Syria.`;
 
   return {
     title,
